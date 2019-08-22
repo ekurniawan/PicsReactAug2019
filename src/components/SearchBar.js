@@ -1,9 +1,15 @@
 import React from 'react';
 
 class SearchBar extends React.Component{
+    state = {searchText:''};
 
-    onInputChange(event){
-        console.log(event.target.value);
+    onInputChange = (event)=>{
+        this.setState({searchText:event.target.value});
+        //console.log(event.target.value);
+    }
+
+    onClick = () => {
+        console.log(`Data Input: ${this.state.searchText}`);
     }
 
     render(){
@@ -13,6 +19,7 @@ class SearchBar extends React.Component{
               <div className="field">
                 <label>Image Search</label>
                 <input type="text" onChange={this.onInputChange} />
+                <button type="button" className="ui primary button" onClick={this.onClick}>Click Me</button>
               </div>
             </form>
           </div>
